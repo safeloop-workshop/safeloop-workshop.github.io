@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en" class="has-navbar-fixed-top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SafeLoop: Safety-Critical Autonomous Driving in Closed Loop. A CVPR 2027 workshop with the NavSafe-∞ Closed-Loop Safety Challenge."
+    />
+    <title>SafeLoop · CVPR 2027 Workshop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/style.css?v=2026-10-15b" />
+    <script>document.documentElement.classList.add("js");</script>
+  </head>
+
+  <body>
+    <!-- ======================= TOP NAVBAR ======================= -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <nav class="navbar is-fixed-top site-nav" role="navigation" aria-label="Main">
+      <div class="container is-max-desktop">
+        <div class="navbar-brand">
+          <a class="navbar-item brand" href="#top">SafeLoop</a>
+          <a role="button" class="navbar-burger" aria-label="Open menu" aria-expanded="false" data-target="siteMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="siteMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="#about">About</a>
+            <a class="navbar-item" href="#news">News</a>
+            <a class="navbar-item" href="#program">Program</a>
+            <a class="navbar-item" href="#papers">Call for Papers</a>
+            <a class="navbar-item is-challenge" href="#challenge">Challenge</a>
+            <a class="navbar-item" href="#organizers">Organizers</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ======================= HERO ======================= -->
+    <section class="hero site-hero" id="top">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="hero-grid">
+            <div class="hero-main">
+              <p class="edition">1st Workshop Edition</p>
+              <h1>SafeLoop</h1>
+              <p class="tagline">Safety-Critical Autonomous Driving in Closed Loop</p>
+              <p class="with">with the <strong>NavSafe-∞ Closed-Loop Safety Challenge</strong></p>
+              <div class="hero-actions">
+                <a class="button is-cta" href="#papers">Call for Papers</a>
+                <a class="button is-cta is-challenge" href="#challenge">NavSafe-∞ Challenge</a>
+              </div>
+            </div>
+            <aside class="hero-card" aria-label="At a glance">
+              <dl class="hero-facts">
+                <div><dt>Venue</dt><dd>CVPR 2027, Seattle, WA, USA</dd></div>
+                <div><dt>Date</dt><dd>June 20 or 21, 2027<span>To be confirmed by CVPR</span></dd></div>
+                <div><dt>Format</dt><dd>Full day, 08:00–18:00</dd></div>
+                <div><dt>Challenge</dt><dd>Evaluation server opens March 1, 2027<span>On Hugging Face</span></dd></div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================= ABOUT ======================= -->
+    <section class="section" id="about">
+      <div class="container is-max-desktop content">
+        <h2 class="title">About</h2>
+        <p>
+          How can we evaluate and improve safety when a driving policy's actions determine its future observations?
+          A driving policy must do more than predict a plausible trajectory from a recorded image. It must respond to
+          observations that its own actions create.
+        </p>
+        <p>
+          This full-day workshop brings together researchers in computer vision, robotics, simulation, and
+          transportation to study closed-loop safety. It connects safety-critical simulation, closed-loop learning,
+          safe planning, recovery, and safety assurance. The program combines invited talks, contributed papers,
+          posters, a reproducible closed-loop safety challenge, an interactive failure clinic, and a panel on safety
+          evidence. Together, participants will develop shared recommendations for diagnosing safety failures and
+          measuring closed-loop improvements across driving policies and simulation platforms.
+        </p>
+        <p>
+          The workshop is motivated by
+          <a href="https://navsafe-vail.github.io/" target="_blank" rel="noopener">NavSafe-∞</a>, a benchmark of 280
+          photorealistic scenarios that cover 28 safety-critical event types in four categories: traffic crashes,
+          vulnerable road user crashes, traffic violations, and traffic incidents. Its evaluation of 20 driving
+          policies finds that open-loop improvements do not reliably predict closed-loop safety.
+        </p>
+
+        <h3 class="subtitle">Topics</h3>
+        <p>
+          We welcome work on closed-loop safety in end-to-end and modular driving systems, vision-language-action
+          models, learned world models, and classical planning baselines. Contributions must connect their methods
+          to safety during policy–environment interaction. Work may use NavSafe-∞ or other evaluation resources.
+        </p>
+        <ul class="topic-list">
+          <li>
+            <strong>Closed-loop safety measurement and generalization</strong>
+            <span>Event-level metrics, uncertainty estimates, held-out evaluation, benchmark contamination, and how
+              open-loop, pseudo-simulation, and interactive evaluation relate.</span>
+          </li>
+          <li>
+            <strong>Safety-critical closed-loop simulation</strong>
+            <span>Neural reconstruction, 3D Gaussian splatting, generative simulation, camera calibration, temporal
+              consistency, reactive traffic, and counterfactual safety-event editing.</span>
+          </li>
+          <li>
+            <strong>Closed-loop learning, safe planning, and recovery</strong>
+            <span>Interactive data collection, imitation and reinforcement learning, safety-aware reward design,
+              uncertainty-aware planning, runtime safeguards, and recovery-aware supervision.</span>
+          </li>
+          <li>
+            <strong>Safety-event design and failure diagnosis</strong>
+            <span>Vulnerable road users, occlusion, traffic-rule compliance, rare interactions, scenario coverage,
+              perception–planning interfaces, and reproducible rollout analysis. Negative results are in scope.</span>
+          </li>
+          <li>
+            <strong>Safety assurance</strong>
+            <span>What evidence supports a safety claim beyond a benchmark score?</span>
+          </li>
+        </ul>
+
+        <h3 class="subtitle">Outcomes</h3>
+        <ul>
+          <li>A closed-loop safety evaluation checklist: observations, simulator assumptions, data splits, seeds, safety metrics, and compute.</li>
+          <li>Diagnostic safety case studies, shared with author consent.</li>
+          <li>A community report on consensus and open safety-assurance questions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= NEWS ======================= -->
+    <section class="section is-tinted" id="news">
+      <div class="container is-max-desktop content">
+        <h2 class="title">News</h2>
+        <ul class="news">
+          <li><span class="date">Oct 2026</span><span>The SafeLoop website is online. More details about the paper track and the challenge will follow.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= PROGRAM ======================= -->
+    <section class="section" id="program">
+      <div class="container is-max-desktop content">
+        <h2 class="title">Program</h2>
+        <p class="schedule-meta">Tentative. Full day, 08:00–18:00 local time (PDT). Keynotes are 20 minutes, including questions.</p>
+        <!-- To fill in a keynote, replace its session-header with:
+             <a class="session-header" href="HOMEPAGE" target="_blank" rel="noopener">
+               <img class="session-avatar" src="static/img/people/NAME.jpg" alt="NAME" />
+               <div class="session-text">
+                 <span class="session-kicker"><span class="what">Keynote N: TALK TITLE</span><span class="session-label is-keynote">Keynote</span></span>
+                 <p class="session-name">NAME</p>
+                 <p class="session-affil">AFFILIATION</p>
+               </div>
+               <img class="session-logo" src="static/img/logos/ORG.png" alt="ORG" />
+             </a>
+             and put the abstract and bio text into the two <details> blocks. -->
+        <table class="schedule">
+          <thead>
+            <tr><th>Time</th><th>Session</th></tr>
+          </thead>
+          <tbody>
+            <tr class="general">
+              <td class="t">08:00–08:05</td>
+              <td><span class="session-kicker"><span class="what">Opening remarks</span></span><span class="note">Welcome and workshop overview</span></td>
+            </tr>
+            <tr class="general">
+              <td class="t">08:05–08:20</td>
+              <td><span class="session-kicker"><span class="what">Opening talk: what evidence establishes closed-loop safety?</span></span><span class="note">Organizers</span></td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">08:20–08:40</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 1</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">08:40–09:00</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 2</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">09:00–09:20</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 3</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">09:20–09:40</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 4</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">09:40–10:00</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 5</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="break">
+              <td class="t">10:00–10:50</td>
+              <td><span class="session-kicker"><span class="what">Poster session I and coffee break</span><span class="session-label is-break">Posters</span></span><span class="note">Optional safety-scenario driving station</span></td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">10:50–11:10</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 6</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">11:10–11:30</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 7</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="interactive">
+              <td class="t">11:30–12:00</td>
+              <td><span class="session-kicker"><span class="what">Panel I: closed-loop safety in industry</span><span class="session-label is-interactive">Panel</span></span><span class="note">Keynote speakers</span></td>
+            </tr>
+            <tr class="general">
+              <td class="t">12:00–13:00</td>
+              <td><span class="session-kicker"><span class="what">Lunch break and networking</span></span></td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">13:00–13:20</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 8</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">13:20–13:40</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 9</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">13:40–14:00</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 10</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">14:00–14:20</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 11</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="keynote">
+              <td class="t">14:20–14:40</td>
+              <td>
+                <div class="session-card">
+                  <div class="session-header">
+                    <span class="session-avatar is-empty" aria-hidden="true">TBD</span>
+                    <div class="session-text">
+                      <span class="session-kicker"><span class="what">Keynote 12</span><span class="session-label is-keynote">Keynote</span></span>
+                      <p class="session-name tba">Speaker TBD</p>
+                      <p class="session-affil">Affiliation to be announced</p>
+                    </div>
+                  </div>
+                  <details class="session-detail"><summary>Abstract</summary><p>To be announced.</p></details>
+                  <details class="session-detail"><summary>Speaker bio</summary><p>To be announced.</p></details>
+                </div>
+              </td>
+            </tr>
+            <tr class="challenge-row">
+              <td class="t">14:40–15:00</td>
+              <td><span class="session-kicker"><span class="what">NavSafe-∞ Challenge: protocol, baselines, and results</span><span class="session-label is-challenge-row">Challenge</span></span><span class="note">Organizers</span></td>
+            </tr>
+            <tr class="break">
+              <td class="t">15:00–16:00</td>
+              <td><span class="session-kicker"><span class="what">Poster session II and coffee break</span><span class="session-label is-break">Posters</span></span></td>
+            </tr>
+            <tr class="interactive">
+              <td class="t">16:00–16:30</td>
+              <td><span class="session-kicker"><span class="what">Panel II: what evidence establishes a closed-loop safety improvement?</span><span class="session-label is-interactive">Panel</span></span><span class="note">Keynote speakers</span></td>
+            </tr>
+            <tr class="oral">
+              <td class="t">16:30–16:40</td>
+              <td><span class="session-kicker"><span class="what">Oral paper presentation 1</span><span class="session-label is-oral">Oral</span></span><span class="note tba">Paper TBD</span></td>
+            </tr>
+            <tr class="oral">
+              <td class="t">16:40–16:50</td>
+              <td><span class="session-kicker"><span class="what">Oral paper presentation 2</span><span class="session-label is-oral">Oral</span></span><span class="note tba">Paper TBD</span></td>
+            </tr>
+            <tr class="oral">
+              <td class="t">16:50–17:00</td>
+              <td><span class="session-kicker"><span class="what">Oral paper presentation 3</span><span class="session-label is-oral">Oral</span></span><span class="note tba">Paper TBD</span></td>
+            </tr>
+            <tr class="oral">
+              <td class="t">17:00–17:10</td>
+              <td><span class="session-kicker"><span class="what">Oral paper presentation 4</span><span class="session-label is-oral">Oral</span></span><span class="note tba">Paper TBD</span></td>
+            </tr>
+            <tr class="oral">
+              <td class="t">17:10–17:20</td>
+              <td><span class="session-kicker"><span class="what">Oral paper presentation 5</span><span class="session-label is-oral">Oral</span></span><span class="note tba">Paper TBD</span></td>
+            </tr>
+            <tr class="general">
+              <td class="t">17:20–17:30</td>
+              <td><span class="session-kicker"><span class="what">Paper awards</span></span><span class="note">Best paper and best poster</span></td>
+            </tr>
+            <tr class="challenge-row">
+              <td class="t">17:30–17:40</td>
+              <td><span class="session-kicker"><span class="what">Challenge winner presentation</span><span class="session-label is-challenge-row">Challenge</span></span></td>
+            </tr>
+            <tr class="challenge-row">
+              <td class="t">17:40–17:50</td>
+              <td><span class="session-kicker"><span class="what">Challenge awards ceremony</span><span class="session-label is-challenge-row">Challenge</span></span></td>
+            </tr>
+            <tr class="general">
+              <td class="t">17:50–18:00</td>
+              <td><span class="session-kicker"><span class="what">Closing remarks and group photo</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================= CALL FOR PAPERS ======================= -->
+    <section class="section" id="papers">
+      <div class="container is-max-desktop content">
+        <h2 class="title">Call for Papers</h2>
+        <p>
+          We invite papers on all <a href="#about">topics</a> of the workshop. Acceptance does not depend on using
+          NavSafe-∞, entering the challenge, or reporting a positive result.
+        </p>
+        <div class="paper-tracks">
+          <article class="paper-track">
+            <span class="paper-tag">Archival</span>
+            <h4>Full papers</h4>
+            <p class="paper-len">Up to 8 pages, excluding references</p>
+            <p>Published in the CVPR 2027 workshop proceedings.</p>
+          </article>
+          <article class="paper-track">
+            <span class="paper-tag">Non-archival</span>
+            <h4>Extended abstracts</h4>
+            <p class="paper-len">2–4 pages, excluding references</p>
+            <p>Work in progress, negative results, position papers, and reproducibility studies are welcome.</p>
+          </article>
+        </div>
+
+        <table class="table kv">
+          <tbody>
+            <tr>
+              <td>Format</td>
+              <td>CVPR 2027 template and policies. Authors choose the track at submission.</td>
+            </tr>
+            <tr>
+              <td>Review</td>
+              <td>Double-blind on OpenReview, with at least three reviews per paper.</td>
+            </tr>
+            <tr>
+              <td>Review criteria</td>
+              <td>Technical quality, relevance to closed-loop safety, clarity of safety claims and evaluation assumptions, reproducibility, and potential to stimulate discussion.</td>
+            </tr>
+            <tr>
+              <td>Presentation</td>
+              <td>All accepted papers get a poster. Selected papers get an oral talk or a spotlight.</td>
+            </tr>
+            <tr>
+              <td>Submission portal</td>
+              <td><span class="tba">OpenReview link to be announced</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="subtitle">Important Dates</h3>
+        <ol class="ch-timeline is-light">
+          <li><time>Jan 15, 2027</time><span>Submissions open</span></li>
+          <li><time>Mar 1, 2027</time><span>Submission deadline (papers and abstracts)</span></li>
+          <li><time>Mar 25, 2027</time><span>Notification to authors</span></li>
+          <li><time>Apr 23, 2027</time><span>Camera-ready deadline (archival)</span></li>
+          <li><time>Jun 20 or 21, 2027</time><span>Workshop</span></li>
+        </ol>
+        <p class="tba">All deadlines are 23:59 Anywhere on Earth (AoE).</p>
+      </div>
+    </section>
+
+    <!-- ======================= CHALLENGE ======================= -->
+    <section class="section is-dark challenge" id="challenge">
+      <div class="container is-max-desktop">
+        <header class="ch-head">
+          <h2 class="title">NavSafe-∞ Closed-Loop Safety Challenge</h2>
+          <p class="ch-lead">
+            The challenge tests whether driving policies handle safety-critical visual driving events. Teams submit a
+            policy. We run it in closed loop through photorealistic, neurally reconstructed scenarios and score how it
+            handles each safety event. The results give the workshop shared, inspectable evidence.
+          </p>
+          <div class="challenge-links">
+            <a class="button is-primary-action" href="https://navsafe-vail.github.io/" target="_blank" rel="noopener">NavSafe-∞ project page</a>
+            <a class="button" href="https://arxiv.org/abs/2609.26618" target="_blank" rel="noopener">Paper (arXiv)</a>
+            <span class="button" disabled>Devkit: Feb 1, 2027</span>
+          </div>
+        </header>
+
+        <div class="ch-stats">
+          <div><span class="n">280</span><span class="l">public scenarios</span></div>
+          <div><span class="n">28</span><span class="l">safety-critical event types</span></div>
+          <div><span class="n">140</span><span class="l">private instances, at least 5 per type</span></div>
+          <div><span class="n">3</span><span class="l">fixed seeds per event</span></div>
+        </div>
+
+        <div class="ch-block">
+          <h3 class="ch-h">Evaluation pools</h3>
+          <p class="ch-sub">Every entry is evaluated on two scenario pools.</p>
+          <div class="ch-pools">
+            <article class="ch-pool">
+              <span class="ch-tag">Released</span>
+              <h4>Public pool</h4>
+              <p class="ch-pool-size">280 published scenarios, 28 event types</p>
+              <p>The NavSafe-∞ benchmark. Use it to validate your policy and to compare with the 20 baselines in the paper. Because these events are public, the public pool does not decide the ranking.</p>
+              <p class="ch-pool-role"><span>Used for</span>Validation and comparison</p>
+            </article>
+            <article class="ch-pool is-private">
+              <span class="ch-tag">Held by the organizers</span>
+              <h4>Private pool</h4>
+              <p class="ch-pool-size">At least 5 instances per event type (140 in total)</p>
+              <p>New instances of the same 28 event types, never released. Source logs and near-duplicate scenes are kept apart from the public pool and from public training data.</p>
+              <p class="ch-pool-role"><span>Used for</span>Final ranking and awards</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="ch-block">
+          <h3 class="ch-h">Policy interface</h3>
+          <div class="ch-flow">
+            <div class="ch-step">
+              <span class="ch-k">Input</span>
+              <p>Rendered camera observations, calibration, permitted ego-state history, and a route instruction.</p>
+            </div>
+            <span class="ch-arrow" aria-hidden="true"></span>
+            <div class="ch-step is-policy">
+              <span class="ch-k">Your policy</span>
+              <p>A versioned container, run on organizer-controlled workers without network access.</p>
+            </div>
+            <span class="ch-arrow" aria-hidden="true"></span>
+            <div class="ch-step">
+              <span class="ch-k">Output</span>
+              <p>A future ego trajectory.</p>
+            </div>
+          </div>
+          <p class="ch-sub">The camera rig, observation history, controller, and vehicle model are the same for all entries.</p>
+
+          <div class="ch-two">
+            <div class="ch-panel">
+              <h4>Training data</h4>
+              <p class="ch-panel-text">Any publicly available dataset or pretrained model, including but not limited to NAVSIM/OpenScene and nuPlan. All training data must be declared at submission. The public pool is reserved for validation.</p>
+            </div>
+            <div class="ch-panel is-warn">
+              <h4>Not allowed</h4>
+              <ul class="ch-x">
+                <li>LiDAR</li>
+                <li>Privileged scene state</li>
+                <li>Ground-truth object tracks</li>
+                <li>Future actor trajectories</li>
+                <li>The logged future ego trajectory</li>
+                <li>Training or tuning on either pool, evaluation logs, or score feedback</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ch-block">
+          <h3 class="ch-h">Evaluation and ranking</h3>
+          <div class="ch-two">
+            <div class="ch-panel">
+              <h4>Ranking order</h4>
+              <ol class="ch-rank">
+                <li><strong>Mean Driving Score</strong> over all private-pool events and three fixed seeds</li>
+                <li>If tied: <strong>Success Rate</strong></li>
+                <li>If still tied: the higher <strong>worst-category ability score</strong></li>
+              </ol>
+            </div>
+            <div class="ch-panel">
+              <h4>Reported for every entry</h4>
+              <ul class="ch-chips">
+                <li class="is-key">Driving Score (DS)</li>
+                <li class="is-key">Success Rate (SR)</li>
+                <li class="is-key">Driving Efficiency (DE)</li>
+                <li class="is-key">Comfort</li>
+              </ul>
+              <p class="ch-also">Also reported</p>
+              <ul class="ch-chips">
+                <li>Four category ability scores</li>
+                <li>Per-event-type results</li>
+                <li>Collisions and violations</li>
+                <li>Seed variation</li>
+              </ul>
+            </div>
+          </div>
+          <ul class="ch-list">
+            <li>The devkit uses the event-specific criteria from the NavSafe-∞ paper.</li>
+            <li>Public-pool results use the published aggregation, so they are comparable with the paper.</li>
+            <li>A human driver is evaluated on the private pool with the same interface, as a reference.</li>
+          </ul>
+        </div>
+
+        <div class="ch-block">
+          <h3 class="ch-h">Submission and rules</h3>
+          <dl class="ch-rules">
+            <div><dt>Submit</dt><dd>A versioned container and model checksum. Submit through the challenge portal on <a href="https://huggingface.co/spaces/SafeLoop-workshop/NavSafe-infty-challenge-2027" target="_blank" rel="noopener">Hugging Face</a> (opens March 1, 2027).</dd></div>
+            <div><dt>Limits</dt><dd>One validation submission per team per day, ten in total, and two final models.</dd></div>
+            <div><dt>Feedback</dt><dd>Private-pool scores are withheld until the deadline.</dd></div>
+            <div><dt>Verification</dt><dd>Top entries send a training-data declaration and a technical report, and pass an independent rerun before awards.</dd></div>
+            <div><dt>Eligibility</dt><dd>Organizer entries are reference only and cannot win awards.</dd></div>
+            <div><dt>Compute</dt><dd>GPU type, memory cap, per-step timeout, and container size limits will be published at launch.</dd></div>
+          </dl>
+        </div>
+
+        <div class="ch-block">
+          <h3 class="ch-h">Awards</h3>
+          <div class="ch-awards">
+            <div><span class="place">1st</span><span class="what">place</span></div>
+            <div><span class="place">2nd</span><span class="what">place</span></div>
+            <div><span class="place">3rd</span><span class="what">place</span></div>
+            <div class="is-repro"><span class="place">Reproducibility</span><span class="what">award for the best-documented, rerunnable entry</span></div>
+          </div>
+          <p class="ch-sub">The top three teams present at the workshop. Prizes and sponsors will be announced.</p>
+        </div>
+
+        <div class="ch-block">
+          <h3 class="ch-h">Timeline</h3>
+          <ol class="ch-timeline">
+            <li><time>Feb 1, 2027</time><span>Public pool, devkit, rules, baseline adapters, and tutorial</span></li>
+            <li><time>Mar 1, 2027</time><span>Evaluation server opens on Hugging Face</span></li>
+            <li><time>May 20, 2027</time><span>Final models due</span></li>
+            <li><time>May 27, 2027</time><span>Technical reports due (non-archival)</span></li>
+            <li><time>Jun 3, 2027</time><span>Verified results and award notification</span></li>
+            <li><time>Jun 20 or 21, 2027</time><span>Workshop and award ceremony</span></li>
+          </ol>
+        </div>
+
+        <div class="ch-foot">
+          <p class="caveat">
+            Simulation results measure behavior under specified event distributions and modeling assumptions. They do
+            not certify road safety or estimate real-world crash rates.
+          </p>
+          <details class="ch-cite">
+            <summary>Cite NavSafe-∞</summary>
+            <pre>@article{bao2026navsafe,
+  title   = {NavSafe-$\infty$: Benchmarking Closed-Loop Driving Safety in Photorealistic Environments},
+  author  = {Bao, Yuxin and Ruan, Hongwei and Wang, Luobin and Zhao, Seth Z. and Leng, Z. and Zhang, Z.
+             and Zeng, Yu and McAllister, Rowan and Christensen, Henrik and Zhou, Bolei},
+  journal = {arXiv preprint arXiv:2609.26618},
+  year    = {2026}
+}</pre>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ORGANIZERS ======================= -->
+    <section class="section" id="organizers">
+      <div class="container is-max-desktop content">
+        <h2 class="title">Organizers</h2>
+        <div class="org-grid">
+          <a class="org" href="https://sethzhao506.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/seth.jpg" alt="Seth Z. Zhao" />
+            <p class="org-name">Seth Z. Zhao</p>
+            <p class="org-affil">UCLA</p>
+            <p class="org-role">Workshop co-chair</p>
+          </a>
+          <a class="org" href="https://www.cogrob.org/people/" target="_blank" rel="noopener">
+            <img src="static/img/people/luobin.jpg" alt="Luobin (Robin) Wang" />
+            <p class="org-name">Luobin (Robin) Wang</p>
+            <p class="org-affil">UC San Diego</p>
+            <p class="org-role">Workshop co-chair</p>
+          </a>
+          <a class="org" href="https://github.com/VAIL-UCLA/BridgeSim" target="_blank" rel="noopener">
+            <span class="initials" aria-hidden="true">HR</span>
+            <p class="org-name">Hongwei Ruan</p>
+            <p class="org-affil">UC San Diego</p>
+            <p class="org-role">Challenge co-chair</p>
+          </a>
+          <a class="org" href="https://vail.cs.ucla.edu/team/" target="_blank" rel="noopener">
+            <img src="static/img/people/yuxin.jpg" alt="Yuxin Bao" />
+            <p class="org-name">Yuxin Bao</p>
+            <p class="org-affil">UCLA</p>
+            <p class="org-role">Challenge co-chair</p>
+          </a>
+          <a class="org" href="https://zewei-zhou.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/zewei.jpg" alt="Zewei Zhou" />
+            <p class="org-name">Zewei Zhou</p>
+            <p class="org-affil">UCLA</p>
+          </a>
+          <a class="org" href="https://zhumorui.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/morui.jpg" alt="Morui Zhu" />
+            <p class="org-name">Morui Zhu</p>
+            <p class="org-affil">University of North Texas</p>
+          </a>
+          <a class="org" href="https://arxiv.org/abs/2609.26618" target="_blank" rel="noopener">
+            <span class="initials" aria-hidden="true">YZ</span>
+            <p class="org-name">Yu Zeng</p>
+            <p class="org-affil">Toyota Research Institute</p>
+          </a>
+          <a class="org" href="https://www.linkedin.com/in/ruta-joshi" target="_blank" rel="noopener">
+            <span class="initials" aria-hidden="true">RJ</span>
+            <p class="org-name">Ruta Joshi</p>
+            <p class="org-affil">Toyota Research Institute</p>
+          </a>
+          <a class="org" href="https://rowanmcallister.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/rowan.jpg" alt="Rowan McAllister" />
+            <p class="org-name">Rowan McAllister</p>
+            <p class="org-affil">Toyota Research Institute</p>
+          </a>
+          <a class="org" href="https://boleizhou.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/bolei.jpg" alt="Bolei Zhou" />
+            <p class="org-name">Bolei Zhou</p>
+            <p class="org-affil">UCLA</p>
+          </a>
+          <a class="org" href="https://samueli.ucla.edu/people/jiaqi-ma/" target="_blank" rel="noopener">
+            <img src="static/img/people/jiaqi.jpg" alt="Jiaqi Ma" />
+            <p class="org-name">Jiaqi Ma</p>
+            <p class="org-affil">UCLA</p>
+          </a>
+          <a class="org" href="https://hichristensen.com/" target="_blank" rel="noopener">
+            <img src="static/img/people/henrik.jpg" alt="Henrik Christensen" />
+            <p class="org-name">Henrik Christensen</p>
+            <p class="org-affil">UC San Diego</p>
+          </a>
+        </div>
+
+        <h3 class="subtitle">Program Committee</h3>
+        <p class="tba">To be announced.</p>
+      </div>
+    </section>
+
+    <!-- ======================= CONTACT / FOOTER ======================= -->
+    <footer class="site-footer" id="contact">
+      <div class="container is-max-desktop">
+        <p><strong>SafeLoop</strong>, a CVPR 2027 workshop</p>
+        <p>
+          Contact: Seth Z. Zhao (<a href="mailto:sethzhao506@g.ucla.edu">sethzhao506@g.ucla.edu</a>) and
+          Luobin Wang (<a href="mailto:luw015@ucsd.edu">luw015@ucsd.edu</a>)
+        </p>
+      </div>
+    </footer>
+
+    <script src="static/js/main.js?v=2026-10-15b"></script>
+  </body>
+</html>
