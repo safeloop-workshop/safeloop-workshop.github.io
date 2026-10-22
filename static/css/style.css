@@ -178,7 +178,8 @@ h3.subtitle {
     rgba(132, 156, 255, 0.14) 0deg,
     rgba(132, 156, 255, 0.04) 28deg,
     transparent 46deg,
-    transparent 360deg
+    transparent 354deg,
+    rgba(132, 156, 255, 0.14) 360deg
   );
   border-radius: 50%;
   animation: hero-sweep 16s linear infinite;
@@ -191,10 +192,29 @@ h3.subtitle {
   }
 }
 
-/* On narrow screens the sweep reads as a hard band; keep only the grid */
+/* Narrow screens: the hero is tall, so pivot the sweep on the right edge,
+   halfway down, with a radius large enough to cover the whole hero */
 @media screen and (max-width: 768px) {
   .hero.site-hero::after {
-    display: none;
+    width: 2400px;
+    height: 2400px;
+    left: calc(78% - 1200px);
+    top: calc(58% - 1200px);
+    bottom: auto;
+    background: conic-gradient(
+      from 0deg,
+      rgba(132, 156, 255, 0.2) 0deg,
+      rgba(132, 156, 255, 0.06) 30deg,
+      transparent 50deg,
+      transparent 354deg,
+      rgba(132, 156, 255, 0.2) 360deg
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero.site-hero::after {
+    animation: none;
   }
 }
 
@@ -325,35 +345,83 @@ h3.subtitle {
 }
 
 .hero-actions .button.is-cta {
+  gap: 0.9rem;
+  height: 3rem;
+  padding: 0 0.4rem 0 1.4rem;
+  border: none;
   border-radius: 999px;
-  height: 2.75rem;
-  padding: 0 1.5rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: 0.98rem;
+  letter-spacing: 0.005em;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Two light pills that differ only in tint: white for papers,
+   pale periwinkle (the challenge color) for the challenge */
+.hero-actions .button.is-papers {
   background: #fff;
-  border-color: #fff;
   color: var(--navy);
-  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.hero-actions .button.is-cta:hover {
-  background: #e6eaf3;
-  border-color: #e6eaf3;
+.hero-actions .button.is-papers:hover {
+  background: #eef1f7;
   color: var(--navy);
-  text-decoration: none;
 }
 
-/* Challenge: a translucent periwinkle pill that reads as its own thing */
 .hero-actions .button.is-challenge {
-  background: rgba(132, 156, 255, 0.16);
-  border-color: rgba(160, 180, 255, 0.55);
-  color: #dfe5ff;
+  background: #c9d1ff;
+  color: #18245c;
 }
 
 .hero-actions .button.is-challenge:hover {
-  background: rgba(132, 156, 255, 0.28);
-  border-color: rgba(190, 204, 255, 0.85);
-  color: #fff;
+  background: #d8deff;
+  color: #18245c;
+}
+
+.hero-actions .button.is-cta:hover {
+  text-decoration: none;
+}
+
+/* Arrow in a small dark circle; on hover one arrow leaves and the next slides in */
+.hero-actions .cta-dot {
+  position: relative;
+  overflow: hidden;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  flex: none;
+  background: var(--navy);
+}
+
+.hero-actions .is-challenge .cta-dot {
+  background: #18245c;
+}
+
+.hero-actions .cta-dot svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: -0.475rem 0 0 -0.475rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hero-actions .cta-dot svg + svg {
+  transform: translateX(-2.2rem);
+}
+
+.hero-actions .button.is-cta:hover .cta-dot svg:first-child {
+  transform: translateX(2.2rem);
+}
+
+.hero-actions .button.is-cta:hover .cta-dot svg + svg {
+  transform: translateX(0);
 }
 
 /* ---------------- About ---------------- */
@@ -734,7 +802,7 @@ a.session-header:hover {
   text-decoration: none;
 }
 
-.org:hover .org-name {
+a.org:hover .org-name {
   color: var(--accent);
 }
 
@@ -922,8 +990,8 @@ a.session-header:hover {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.org:hover img,
-.org:hover .initials {
+a.org:hover img,
+a.org:hover .initials {
   transform: scale(1.05);
   box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(40, 70, 200, 0.45);
 }
@@ -1451,6 +1519,11 @@ a.session-header:hover {
   border-left: 1px solid var(--ch-line);
 }
 
+/* A rule left alone on the last row spans the full width */
+.ch-rules > div:last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+}
+
 .ch-rules dt {
   font-size: 0.8rem;
   font-weight: 600;
@@ -1481,6 +1554,10 @@ a.session-header:hover {
   grid-template-columns: repeat(3, minmax(0, 0.7fr)) minmax(0, 1.6fr);
   gap: 0.75rem;
   margin-top: 1.1rem;
+}
+
+.ch-awards + .ch-sub {
+  margin-top: 1rem;
 }
 
 .ch-awards > div {
@@ -1609,10 +1686,13 @@ a.session-header:hover {
 }
 
 /* Light variant of the timeline, used in Call for Papers */
+/* One column per date, however many dates there are, so the rail stays on one row */
 .content ol.ch-timeline.is-light {
   list-style: none;
   margin-left: 0;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
 }
 
 .content .ch-timeline.is-light li {
@@ -1641,6 +1721,7 @@ a.session-header:hover {
 @media screen and (max-width: 900px) {
   .content ol.ch-timeline.is-light {
     grid-template-columns: 1fr;
+    grid-auto-flow: row;
   }
 }
 

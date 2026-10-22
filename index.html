@@ -8,6 +8,7 @@
       content="SafeLoop: Safety-Critical Autonomous Driving in Closed Loop. A CVPR 2027 workshop proposal with a Demo Track and the NavSafe-∞ Closed-Loop Safety Challenge."
     />
     <title>SafeLoop · CVPR 2027 Workshop</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f1b33'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23c9d1ff' stroke-width='3'/%3E%3Ccircle cx='24' cy='16' r='2.6' fill='%23fff'/%3E%3C/svg%3E" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
-    <link rel="stylesheet" href="static/css/style.css?v=2026-10-15b" />
+    <link rel="stylesheet" href="static/css/style.css?v=2026-10-21h" />
     <script>document.documentElement.classList.add("js");</script>
   </head>
 
@@ -58,13 +59,13 @@
               <p class="tagline">Safety-Critical Autonomous Driving in Closed Loop</p>
               <p class="with">with a <strong>Demo Track</strong> and the <strong>NavSafe-∞ Closed-Loop Safety Challenge</strong></p>
               <div class="hero-actions">
-                <a class="button is-cta" href="#papers">Call for Papers &amp; Demos</a>
-                <a class="button is-cta is-challenge" href="#challenge">NavSafe-∞ Challenge</a>
+                <a class="button is-cta is-papers" href="#papers"><span>Call for Papers &amp; Demos</span><span class="cta-dot" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+                <a class="button is-cta is-challenge" href="#challenge"><span>NavSafe-∞ Challenge</span><span class="cta-dot" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
               </div>
             </div>
             <aside class="hero-card" aria-label="At a glance">
               <dl class="hero-facts">
-                <div><dt>Venue</dt><dd>Under review</dd></div>
+                <div><dt>Venue</dt><dd>Under review<span>Workshop proposal for CVPR 2027</span></dd></div>
                 <div><dt>Date</dt><dd>June 20 or 21, 2027<span>To be confirmed by CVPR</span></dd></div>
                 <div><dt>Format</dt><dd>Half day (afternoon), 13:30–17:30<span>In person; talks recorded</span></dd></div>
                 <div><dt>Challenge</dt><dd>Evaluation server opens March 1, 2027<span>On Hugging Face</span></dd></div>
@@ -133,8 +134,20 @@
         <ul>
           <li>Within four weeks of the workshop, a community report and evaluation checklist covering simulator assumptions, data splits, metrics, and reproducibility.</li>
           <li>Consented workshop materials, published together with the report.</li>
-          <li>Talk recordings, with speaker consent.</li>
         </ul>
+
+        <h3 class="subtitle">Diversity and Inclusion</h3>
+        <p>
+          Zewei Zhou and Walter Zimmer lead outreach through the vision, robotics, and transportation communities,
+          with particular attention to students and underrepresented researchers. Accessible slides, typed audience
+          questions, and recordings with speaker consent will broaden participation. We will seek student travel
+          support.
+        </p>
+        <p>
+          The organizing team spans five academic and industrial institutions and includes students, postdoctoral
+          researchers, senior academics, and industry researchers. Speaker invitations seek complementary technical
+          perspectives, career stages, and geographic representation, beyond the organizers' institutional networks.
+        </p>
       </div>
     </section>
 
@@ -424,6 +437,8 @@
           <p class="ch-lead">
             The Challenge Track hosts the NavSafe-∞ Closed-Loop Safety Challenge. Submitted driving policies are
             evaluated in closed loop on the photorealistic safety-critical scenarios of the NavSafe-∞ benchmark.
+            Evaluating all methods on shared scenarios will show which approaches improve collision avoidance, rule
+            compliance, and recovery, and which failure modes persist across policies.
           </p>
           <div class="challenge-links">
             <a class="button is-primary-action" href="https://huggingface.co/spaces/SafeLoop-workshop/NavSafe-infty-challenge-2027" target="_blank" rel="noopener">Challenge on Hugging Face</a>
@@ -533,10 +548,9 @@
             <div><dt>Submit</dt><dd>Code, weights, and an environment file (e.g., Conda or pip) through the <a href="https://huggingface.co/spaces/SafeLoop-workshop/NavSafe-infty-challenge-2027" target="_blank" rel="noopener">Hugging Face portal</a>.</dd></div>
             <div><dt>Compute</dt><dd>Each submission must run offline on a single NVIDIA RTX 3090 (24 GB).</dd></div>
             <div><dt>Limits</dt><dd>One validation submission per day, up to ten in total. Each team chooses one final model.</dd></div>
-            <div><dt>Feedback</dt><dd>Private-pool scores stay hidden until the deadline.</dd></div>
+            <div><dt>Score visibility</dt><dd>Private-pool scores stay hidden until the deadline.</dd></div>
             <div><dt>Verification</dt><dd>Top entries must submit a technical report and pass an independent rerun before awards.</dd></div>
             <div><dt>Eligibility</dt><dd>Organizer entries are shown for reference only.</dd></div>
-            <div><dt>Server delay</dt><dd>If the evaluation server is delayed, teams evaluate locally, and the organizers rerun shortlisted entries on the private pool.</dd></div>
             <div><dt>Ethics</dt><dd>Releases respect source-data and asset licenses. Public videos are screened for identifying information. Documentation reports geographic coverage and vulnerable-road-user representation.</dd></div>
           </dl>
         </div>
@@ -558,7 +572,7 @@
             <li><time>Feb 1, 2027</time><span>Public pool, devkit, rules, and baselines released</span></li>
             <li><time>Mar 1, 2027</time><span>Evaluation server opens on Hugging Face</span></li>
             <li><time>May 20, 2027</time><span>Final models due</span></li>
-            <li><time>May 27, 2027</time><span>Technical reports due</span></li>
+            <li><time>May 27, 2027</time><span>Technical reports due (non-archival)</span></li>
             <li><time>Jun 3, 2027</time><span>Verified results and award notifications</span></li>
             <li><time>Jun 20 or 21, 2027</time><span>Workshop presentations and awards</span></li>
           </ol>
@@ -572,9 +586,9 @@
           <details class="ch-cite">
             <summary>Cite NavSafe-∞</summary>
             <pre>@article{bao2026navsafe,
-  title   = {NavSafe-$\infty$: Benchmarking Closed-Loop Driving Safety in Photorealistic Environments},
-  author  = {Bao, Yuxin and Ruan, Hongwei and Wang, Luobin and Zhao, Seth Z. and Leng, Ziyang and Zhang, Z.
-             and Zeng, Yu and McAllister, Rowan and Christensen, Henrik and Zhou, Bolei},
+  title   = {{NavSafe-$\infty$: Benchmarking Closed-Loop Driving Safety in Photorealistic Environments}},
+  author  = {Bao, Yuxin and Ruan, Hongwei and Wang, Luobin and Zhao, Seth Z. and Leng, Ziyang
+             and Zhang, Zihan and Zeng, Yu and McAllister, Rowan and Christensen, Henrik and Zhou, Bolei},
   journal = {arXiv preprint arXiv:2609.26618},
   year    = {2026}
 }</pre>
@@ -590,71 +604,71 @@
         <h2 class="title">Organizers</h2>
         <div class="org-grid">
           <a class="org" href="https://sethzhao506.github.io/" target="_blank" rel="noopener">
-            <img src="static/img/people/seth.jpg" alt="Seth Z. Zhao" />
+            <img src="static/img/people/seth.png" alt="Seth Z. Zhao" />
             <p class="org-name">Seth Z. Zhao</p>
             <p class="org-affil">UCLA</p>
             <p class="org-role">Workshop co-chair</p>
           </a>
-          <a class="org" href="https://www.cogrob.org/people/" target="_blank" rel="noopener">
-            <img src="static/img/people/luobin.jpg" alt="Luobin (Robin) Wang" />
+          <a class="org" href="https://www.linkedin.com/in/luobin-robin-wang-3694721a0/" target="_blank" rel="noopener">
+            <img src="static/img/people/luobin.png" alt="Luobin (Robin) Wang" />
             <p class="org-name">Luobin (Robin) Wang</p>
             <p class="org-affil">UC San Diego</p>
             <p class="org-role">Workshop co-chair</p>
           </a>
-          <a class="org" href="https://github.com/VAIL-UCLA/BridgeSim" target="_blank" rel="noopener">
-            <span class="initials" aria-hidden="true">HR</span>
+          <a class="org" href="https://hongweiruan.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/hongwei.jpg" alt="Hongwei Ruan" />
             <p class="org-name">Hongwei Ruan</p>
             <p class="org-affil">UC San Diego</p>
             <p class="org-role">Challenge co-chair</p>
           </a>
-          <a class="org" href="https://vail.cs.ucla.edu/team/" target="_blank" rel="noopener">
+          <a class="org" href="https://www.linkedin.com/in/rebecca-bao-c13752hz/" target="_blank" rel="noopener">
             <img src="static/img/people/yuxin.jpg" alt="Yuxin Bao" />
             <p class="org-name">Yuxin Bao</p>
             <p class="org-affil">UCLA</p>
             <p class="org-role">Challenge co-chair</p>
           </a>
           <a class="org" href="https://zewei-zhou.github.io/" target="_blank" rel="noopener">
-            <img src="static/img/people/zewei.jpg" alt="Zewei Zhou" />
+            <img src="static/img/people/zewei.png" alt="Zewei Zhou" />
             <p class="org-name">Zewei Zhou</p>
             <p class="org-affil">UCLA</p>
           </a>
-          <a class="org" href="https://ce.cit.tum.de/air/people/walter-zimmer-msc" target="_blank" rel="noopener">
-            <span class="initials" aria-hidden="true">WZ</span>
+          <a class="org" href="https://walzimmer.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/walter.jpg" alt="Walter Zimmer" />
             <p class="org-name">Walter Zimmer</p>
             <p class="org-affil">UCLA</p>
           </a>
-          <div class="org">
-            <span class="initials" aria-hidden="true">CS</span>
+          <a class="org" href="https://www.linkedin.com/in/charlton-shih/" target="_blank" rel="noopener">
+            <img src="static/img/people/charlton.jpg" alt="Charlton Shih" />
             <p class="org-name">Charlton Shih</p>
             <p class="org-affil">UCLA</p>
-          </div>
-          <div class="org">
-            <span class="initials" aria-hidden="true">ZL</span>
+          </a>
+          <a class="org" href="https://matthew-leng.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/ziyang.jpg" alt="Ziyang Leng" />
             <p class="org-name">Ziyang Leng</p>
             <p class="org-affil">UCLA</p>
-          </div>
+          </a>
           <a class="org" href="https://zhumorui.github.io/" target="_blank" rel="noopener">
             <img src="static/img/people/morui.jpg" alt="Morui Zhu" />
             <p class="org-name">Morui Zhu</p>
             <p class="org-affil">University of North Texas / Toyota InfoTech Labs</p>
           </a>
-          <div class="org">
-            <span class="initials" aria-hidden="true">DQ</span>
+          <a class="org" href="https://www.linkedin.com/in/darren-qu/" target="_blank" rel="noopener">
+            <img src="static/img/people/deyuan.jpg" alt="Deyuan Qu" />
             <p class="org-name">Deyuan Qu</p>
             <p class="org-affil">Toyota InfoTech Labs</p>
-          </div>
-          <div class="org">
-            <span class="initials" aria-hidden="true">QC</span>
+          </a>
+          <a class="org" href="https://www.linkedin.com/in/qi-chen-33915394/" target="_blank" rel="noopener">
+            <img src="static/img/people/qichen.jpg" alt="Qi Chen" />
             <p class="org-name">Qi Chen</p>
             <p class="org-affil">Toyota InfoTech Labs</p>
-          </div>
-          <a class="org" href="https://arxiv.org/abs/2609.26618" target="_blank" rel="noopener">
-            <span class="initials" aria-hidden="true">YZ</span>
+          </a>
+          <a class="org" href="https://zengxianyu.github.io/" target="_blank" rel="noopener">
+            <img src="static/img/people/yuzeng.jpg" alt="Yu Zeng" />
             <p class="org-name">Yu Zeng</p>
             <p class="org-affil">Toyota Research Institute</p>
           </a>
           <a class="org" href="https://www.linkedin.com/in/ruta-joshi" target="_blank" rel="noopener">
-            <span class="initials" aria-hidden="true">RJ</span>
+            <img src="static/img/people/ruta.jpg" alt="Ruta Joshi" />
             <p class="org-name">Ruta Joshi</p>
             <p class="org-affil">Toyota Research Institute</p>
           </a>
